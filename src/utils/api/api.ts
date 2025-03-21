@@ -5,8 +5,7 @@ import {
 } from "@/utils/storage";
 import { refreshAccessToken, logoutUser } from "./auth";
 
-export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // ✅ Function to make API requests with auto-refresh on 401
 export async function apiRequest(
@@ -29,7 +28,7 @@ export async function apiRequest(
       headers["Authorization"] = `Bearer ${token}`;
     }
 
-    return fetch(`${API_BASE_URL}${endpoint}`, {
+    return fetch(`${API_URL}${endpoint}`, {
       method,
       headers,
       body: body ? JSON.stringify(body) : undefined,
