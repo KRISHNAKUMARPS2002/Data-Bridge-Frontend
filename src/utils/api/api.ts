@@ -5,7 +5,7 @@ import {
 } from "@/utils/storage";
 import { refreshAccessToken, logoutUser } from "./auth";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const API_URL = process.env.NEXT_PUBLIC_;
 
 // ✅ Function to make API requests with auto-refresh on 401
 export async function apiRequest(

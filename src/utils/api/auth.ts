@@ -4,7 +4,7 @@ import {
   removeLocalStorage,
 } from "@/utils/storage";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const API_URL = process.env.NEXT_PUBLIC_;
 
 export interface UserData {
   email: string;
@@ -32,6 +32,8 @@ export interface AuthResponse {
 
 // ✅ Register User & Auto Login
 export async function registerUser(userData: UserData): Promise<AuthResponse> {
+  console.log("Attempting to register at:", `${API_URL}/register`);
+
   try {
     // Step 1: Register user
     const registerResponse = await fetch(`${API_URL}/register`, {
