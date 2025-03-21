@@ -44,7 +44,7 @@ export function useApi(): ApiHook {
           }
         }
 
-        let headers: Record<string, string> = {
+        const headers: Record<string, string> = {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
           ...options.headers,

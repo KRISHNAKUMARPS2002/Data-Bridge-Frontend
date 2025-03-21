@@ -35,6 +35,7 @@ export default function APIInterface() {
   }, []);
 
   async function loadUsers() {
+    console.log(loadUsers);
     try {
       const data = await fetchUsers();
       setUsers(data);
