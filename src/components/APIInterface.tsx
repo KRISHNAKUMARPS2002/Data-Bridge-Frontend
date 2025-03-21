@@ -11,8 +11,12 @@ import {
 } from "@/utils/api/customers";
 
 export default function APIInterface() {
-  const [users, setUsers] = useState([]);
-  const [customers, setCustomers] = useState([]);
+  const [users, setUsers] = useState<{ username: string; password: string }[]>(
+    []
+  );
+  const [customers, setCustomers] = useState<
+    { name: string; address: string; place: string; phone: string }[]
+  >([]);
   const [userForm, setUserForm] = useState({ username: "", password: "" });
   const [customerForm, setCustomerForm] = useState({
     name: "",
@@ -22,8 +26,8 @@ export default function APIInterface() {
   });
 
   // For Bulk Input
-  const [bulkUsers, setBulkUsers] = useState("");
-  const [bulkCustomers, setBulkCustomers] = useState("");
+  const [bulkUsers, setBulkUsers] = useState<string>("");
+  const [bulkCustomers, setBulkCustomers] = useState<string>("");
 
   useEffect(() => {
     loadUsers();
