@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -14,10 +14,14 @@ export default function LoginPage() {
   const { login, loading, error } = useAuth();
   const searchParams = useSearchParams();
 
-  useEffect(() => {
-    const registered = searchParams.get("registered");
-    const db_id = searchParams.get("db_id");
+  // ✅ Use useMemo() to avoid unnecessary re-renders
+  const registered = useMemo(
+    () => searchParams.get("registered"),
+    [searchParams]
+  );
+  const db_id = useMemo(() => searchParams.get("db_id"), [searchParams]);
 
+  useEffect(() => {
     if (registered === "true" && db_id) {
       setSuccessMessage(
         `Registration successful! Your DB ID is: ${db_id}. Please login.`
@@ -26,7 +30,7 @@ export default function LoginPage() {
       const timeout = setTimeout(() => setSuccessMessage(""), 5000);
       return () => clearTimeout(timeout);
     }
-  }, [searchParams]);
+  }, [registered, db_id]); // ✅ Depend only on the memoized values
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
