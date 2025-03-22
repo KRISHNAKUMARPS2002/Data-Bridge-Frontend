@@ -8,7 +8,7 @@ import Navigation from "@/components/Navigation";
 import { useAuth } from "@/context/AuthContext";
 
 interface AppLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
