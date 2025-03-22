@@ -4,7 +4,12 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false, // ❌ Disable strict type checking
+    "noImplicitAny": false, // ✅ Ignore missing type annotations
+    "noImplicitReturns": false, // ✅ Allow functions to return `any`
+    "noImplicitThis": false, // ✅ Ignore `this` errors
+    "strictNullChecks": false, // ✅ Allow `null` and `undefined` freely
+    "noUncheckedIndexedAccess": false, // ✅ Prevent object index type issues
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",

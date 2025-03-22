@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { addCustomer, addBulkCustomers } from "@/utils/api/customers";
 import { useRouter } from "next/navigation"; // Import useRouter
 import { FaArrowRightLong } from "react-icons/fa6";
