@@ -18,6 +18,14 @@ export default function DashboardPage() {
     }
   }, [user, loading, router]);
 
+  // Prevent rendering if user is null
+  if (loading) {
+    return <p className="text-center mt-10 text-lg">Loading...</p>;
+  }
+  if (!user) {
+    return null; // Don't render anything if user is null
+  }
+
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-gray-100">
@@ -61,10 +69,10 @@ export default function DashboardPage() {
                   <span className="text-xl text-[#fff]">
                     <FaUserCircle />
                   </span>{" "}
-                  {user?.email ?? "Guest"}
+                  {user.email}
                 </span>
                 <span className="ml-3 px-6 py-2 bg-[#ffffff25] rounded-3xl text-[#fff] font-medium">
-                  ID: {user?.db_id ?? "N/A"}
+                  ID: {user.db_id}
                 </span>
               </div>
               <button
