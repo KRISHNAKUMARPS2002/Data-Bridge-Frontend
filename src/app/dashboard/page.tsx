@@ -61,10 +61,10 @@ export default function DashboardPage() {
                   <span className="text-xl text-[#fff]">
                     <FaUserCircle />
                   </span>{" "}
-                  {user?.email}
+                  {user?.email ?? "Guest"}
                 </span>
                 <span className="ml-3 px-6 py-2 bg-[#ffffff25] rounded-3xl text-[#fff] font-medium">
-                  ID: {user?.db_id}
+                  ID: {user?.db_id ?? "N/A"}
                 </span>
               </div>
               <button
