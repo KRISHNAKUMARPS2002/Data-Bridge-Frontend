@@ -8,12 +8,12 @@ import { refreshAccessToken, logoutUser } from "./auth";
 export const API_URL = process.env.NEXT_PUBLIC_;
 
 // ✅ Function to make API requests with auto-refresh on 401
-export async function apiRequest(
+export async function apiRequest<T>(
   endpoint: string,
   method: string = "GET",
   body?: any,
   requireAuth: boolean = true
-) {
+): Promise<T> {
   let accessToken = getLocalStorage("accessToken");
 
   if (requireAuth && !accessToken) {
@@ -60,5 +60,5 @@ export async function apiRequest(
     throw new Error(errorText || "Unknown API Error");
   }
 
-  return await response.json();
+  return (await response.json()) as T; // ✅ Fixed return type
 }
