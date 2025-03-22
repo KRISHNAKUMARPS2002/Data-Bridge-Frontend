@@ -6,6 +6,11 @@ import {
 
 export const API_URL = process.env.NEXT_PUBLIC_;
 
+export interface User {
+  email: string;
+  db_id: string;
+}
+
 export interface UserData {
   email: string;
   username: string;
