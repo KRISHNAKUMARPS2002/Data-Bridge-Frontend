@@ -1,4 +1,3 @@
-// File: /src/app/app-layout.tsx
 // Layout component for authenticated pages
 
 "use client";
@@ -8,7 +7,7 @@ import Navigation from "@/components/Navigation";
 import { useAuth } from "@/context/AuthContext";
 
 interface AppLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
