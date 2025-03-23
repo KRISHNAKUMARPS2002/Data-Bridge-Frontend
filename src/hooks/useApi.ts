@@ -5,7 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import { refreshAccessToken } from "@/utils/api/auth";
 
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://sysmac.co.in/api";
+  process.env.NEXT_PUBLIC_API_URL ?? "https://sysmac.co.in/api";
 
 interface FetchOptions extends RequestInit {
   headers?: Record<string, string>;
