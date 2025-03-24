@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { refreshAccessToken } from "@/utils/api/auth";
 
-export const API_URL = "https://sysmac.co.in/api";
+export const API_URL = "http://sysmac.co.in/api";
 
 interface FetchOptions extends RequestInit {
   headers?: Record<string, string>;
