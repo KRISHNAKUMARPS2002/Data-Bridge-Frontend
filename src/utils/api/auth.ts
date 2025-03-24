@@ -4,8 +4,7 @@ import {
   removeLocalStorage,
 } from "@/utils/storage";
 
-export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "https://sysmac.co.in/api";
+export const API_URL = "https://sysmac.co.in/api";
 
 export interface User {
   email: string;
